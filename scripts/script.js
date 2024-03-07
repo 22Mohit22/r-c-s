@@ -12,44 +12,17 @@ function getComputerChoice() {
     }
 };
 
-// let list = ["rock", "paper", "scissor"];
-
-// function playRound(playerSelection, computerSelection) {
-
-//     let playerWinMsg = `You won!!! ${playerSelection} beats ${computerSelection}.`;
-//     let computerWinMsg = `Computer won!!! ${computerSelection} beats ${playerSelection}`;
-
-
-//     if(playerSelection in list) {
-//         if(playerSelection == computerSelection) {
-//             return "It's a TIE";
-//         } else {
-//             if(playerSelection == 'rock' && computerSelection == 'paper') {
-//                 return computerWinMsg;
-//             } else if(playerSelection == 'rock' && computerSelection == 'scissors') {
-//                 return playerWinMsg;
-//             } else if(playerSelection == 'paper' && computerSelection == 'rock') {
-//                 return playerWinMsg;
-//             } else if(playerSelection == 'paper' && computerSelection == 'scissors') {
-//                 return computerWinMsg;
-//             } if(playerSelection == 'scissors' && computerSelection == 'paper') {
-//                 return playerWinMsg;
-//             } else if(playerSelection == 'scissors' && computerSelection == 'rock') {
-//                 return computerWinMsg;
-//             } 
-//         }
-//     } else {
-//         alert('Please write "rock", "paper" or "scissors".');
-//         playRound();
-//     }
-// }
-
+let com_pts = 0;
+let player_pts = 0;
+let round = 0;
 
 function playRound(playerSelection, computerSelection) {
 
+    playerSelection = prompt(`Round ${round+1} \n Enter rock, paper or scissors.`);
+    computerSelection = getComputerChoice();
+
     playerSelection = playerSelection.toLowerCase();
 
-    console.log(playerSelection);
 
     let playerWinMsg = `You won!!! ${playerSelection} beats ${computerSelection}.`;
     let computerWinMsg = `Computer won!!! ${computerSelection} beats ${playerSelection}`;
@@ -80,3 +53,23 @@ function playRound(playerSelection, computerSelection) {
         } 
     }
 }
+
+function playGame() {
+
+    for(round; round < 5; round++) {
+
+        playRound();
+        alert(`You: ${player_pts}\nCom: ${com_pts}`);
+    }
+
+    if(com_pts < player_pts) {
+        console.log(`You Won!!! You scored ${player_pts} and Com scored ${com_pts}.`);
+    } else if(com_pts > player_pts) {
+        console.log(`Com Won!!! Com scored ${com_pts} and you scored ${player_pts}.`);
+    } else {
+        console.log("It's a TIE", `You score ${player_pts} and Com scored ${com_pts}.`);
+    }
+
+}
+
+playGame()
