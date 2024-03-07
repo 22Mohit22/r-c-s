@@ -55,19 +55,27 @@ function playRound(playerSelection, computerSelection) {
     let computerWinMsg = `Computer won!!! ${computerSelection} beats ${playerSelection}`;
     
     if(playerSelection == computerSelection){
-            return "It's a TIE";
+        com_pts += 1;
+        player_pts += 1;
+        return "It's a TIE";
     } else {
         if(playerSelection == 'rock' && computerSelection == 'paper') {
+            com_pts += 1;
             return computerWinMsg;
         } else if(playerSelection == 'rock' && computerSelection == 'scissors') {
+            player_pts += 1;
             return playerWinMsg;
         } else if(playerSelection == 'paper' && computerSelection == 'rock') {
+            player_pts += 1;
             return playerWinMsg;
         } else if(playerSelection == 'paper' && computerSelection == 'scissors') {
+            com_pts += 1;
             return computerWinMsg;
         } if(playerSelection == 'scissors' && computerSelection == 'paper') {
+            player_pts += 1;
             return playerWinMsg;
         } else if(playerSelection == 'scissors' && computerSelection == 'rock') {
+            com_pts += 1;
             return computerWinMsg;
         } 
     }
