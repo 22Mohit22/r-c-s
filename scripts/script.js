@@ -12,3 +12,63 @@ function getComputerChoice() {
     }
 };
 
+// let list = ["rock", "paper", "scissor"];
+
+// function playRound(playerSelection, computerSelection) {
+
+//     let playerWinMsg = `You won!!! ${playerSelection} beats ${computerSelection}.`;
+//     let computerWinMsg = `Computer won!!! ${computerSelection} beats ${playerSelection}`;
+
+
+//     if(playerSelection in list) {
+//         if(playerSelection == computerSelection) {
+//             return "It's a TIE";
+//         } else {
+//             if(playerSelection == 'rock' && computerSelection == 'paper') {
+//                 return computerWinMsg;
+//             } else if(playerSelection == 'rock' && computerSelection == 'scissors') {
+//                 return playerWinMsg;
+//             } else if(playerSelection == 'paper' && computerSelection == 'rock') {
+//                 return playerWinMsg;
+//             } else if(playerSelection == 'paper' && computerSelection == 'scissors') {
+//                 return computerWinMsg;
+//             } if(playerSelection == 'scissors' && computerSelection == 'paper') {
+//                 return playerWinMsg;
+//             } else if(playerSelection == 'scissors' && computerSelection == 'rock') {
+//                 return computerWinMsg;
+//             } 
+//         }
+//     } else {
+//         alert('Please write "rock", "paper" or "scissors".');
+//         playRound();
+//     }
+// }
+
+
+function playRound(playerSelection, computerSelection) {
+
+    playerSelection = playerSelection.toLowerCase();
+
+    console.log(playerSelection);
+
+    let playerWinMsg = `You won!!! ${playerSelection} beats ${computerSelection}.`;
+    let computerWinMsg = `Computer won!!! ${computerSelection} beats ${playerSelection}`;
+    
+    if(playerSelection == computerSelection){
+            return "It's a TIE";
+    } else {
+        if(playerSelection == 'rock' && computerSelection == 'paper') {
+            return computerWinMsg;
+        } else if(playerSelection == 'rock' && computerSelection == 'scissors') {
+            return playerWinMsg;
+        } else if(playerSelection == 'paper' && computerSelection == 'rock') {
+            return playerWinMsg;
+        } else if(playerSelection == 'paper' && computerSelection == 'scissors') {
+            return computerWinMsg;
+        } if(playerSelection == 'scissors' && computerSelection == 'paper') {
+            return playerWinMsg;
+        } else if(playerSelection == 'scissors' && computerSelection == 'rock') {
+            return computerWinMsg;
+        } 
+    }
+}
