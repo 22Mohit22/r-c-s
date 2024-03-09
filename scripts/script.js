@@ -28,9 +28,7 @@ function getComputerChoice() {
 let computerChoice = getComputerChoice();
 
 function playRound(playerChoice, computerChoice) {
-    console.log("You:",playerChoice);
-    console.log("Com:",computerChoice);
-
+    
     let playerWinMsg = `You won!!! ${playerChoice} beats ${computerChoice}.`;
     let computerWinMsg = `Computer won!!! ${computerChoice} beats ${playerChoice}`;
 
