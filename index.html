@@ -3,16 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissors</title>
+    <title>Landing Page</title>
 </head>
 <body>
-    <h1>
-        Go to console to see the result
-    </h1>
-    <h2>
-        Reload the page to restart
-    </h2>
+    
+    <button type="button" class="btn" onclick="() => {playRound}" id="rock">✊</button>
+    <button type="button" class="btn" onclick="() => {playRound}" id="paper">✋</button>
+    <button type="button" class="btn" onclick="() => {playRound}" id="scissors">✌️</button>
 
-    <script src="scripts/script.js"></script>
+    <div>
+        <h1>Result</h1>
+        <p id="roundResult">
+
+        </p>
+
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
+

@@ -1,3 +1,16 @@
+buttonEl = document.querySelectorAll('.btn');
+resultEl = document.querySelector('#roundResult');
+
+let com_pts = 0;
+let player_pts = 0;
+let round = 0;
+
+buttonEl.forEach(btn => {
+    btn.addEventListener('click', () => {
+        playRound(btn.id, computerChoice);
+    })
+})
+
 function getComputerChoice() {
     let comChoice = Math.round(Math.random() * 2);
     
@@ -12,64 +25,38 @@ function getComputerChoice() {
     }
 };
 
-let com_pts = 0;
-let player_pts = 0;
-let round = 0;
+let computerChoice = getComputerChoice();
 
-function playRound(playerSelection, computerSelection) {
+function playRound(playerChoice, computerChoice) {
+    console.log("You:",playerChoice);
+    console.log("Com:",computerChoice);
 
-    playerSelection = prompt(`Round ${round+1} \n Enter rock, paper or scissors.`);
-    computerSelection = getComputerChoice();
+    let playerWinMsg = `You won!!! ${playerChoice} beats ${computerChoice}.`;
+    let computerWinMsg = `Computer won!!! ${computerChoice} beats ${playerChoice}`;
 
-    playerSelection = playerSelection.toLowerCase();
-
-
-    let playerWinMsg = `You won!!! ${playerSelection} beats ${computerSelection}.`;
-    let computerWinMsg = `Computer won!!! ${computerSelection} beats ${playerSelection}`;
-    
-    if(playerSelection == computerSelection){
+    if(playerChoice == computerChoice){
         com_pts += 1;
         player_pts += 1;
-        return "It's a TIE";
+        resultEl.textContent = "It's a TIE";
     } else {
-        if(playerSelection == 'rock' && computerSelection == 'paper') {
+        if(playerChoice == 'rock' && computerChoice == 'paper') {
             com_pts += 1;
-            return computerWinMsg;
-        } else if(playerSelection == 'rock' && computerSelection == 'scissors') {
+            resultEl.textContent = computerWinMsg;
+        } else if(playerChoice == 'rock' && computerChoice == 'scissors') {
             player_pts += 1;
-            return playerWinMsg;
-        } else if(playerSelection == 'paper' && computerSelection == 'rock') {
+            resultEl.textContent = playerWinMsg;
+        } else if(playerChoice == 'paper' && computerChoice == 'rock') {
             player_pts += 1;
-            return playerWinMsg;
-        } else if(playerSelection == 'paper' && computerSelection == 'scissors') {
+            resultEl.textContent = playerWinMsg;
+        } else if(playerChoice == 'paper' && computerChoice == 'scissors') {
             com_pts += 1;
-            return computerWinMsg;
-        } if(playerSelection == 'scissors' && computerSelection == 'paper') {
+            resultEl.textContent = computerWinMsg;
+        } if(playerChoice == 'scissors' && computerChoice == 'paper') {
             player_pts += 1;
-            return playerWinMsg;
-        } else if(playerSelection == 'scissors' && computerSelection == 'rock') {
+            resultEl.textContent = playerWinMsg;
+        } else if(playerChoice == 'scissors' && computerChoice == 'rock') {
             com_pts += 1;
-            return computerWinMsg;
+            resultEl.textContent = computerWinMsg;
         } 
     }
 }
-
-function playGame() {
-
-    for(round; round < 5; round++) {
-
-        playRound();
-        alert(`You: ${player_pts}\nCom: ${com_pts}`);
-    }
-
-    if(com_pts < player_pts) {
-        console.log(`You Won!!! You scored ${player_pts} and Com scored ${com_pts}.`);
-    } else if(com_pts > player_pts) {
-        console.log(`Com Won!!! Com scored ${com_pts} and you scored ${player_pts}.`);
-    } else {
-        console.log("It's a TIE", `You score ${player_pts} and Com scored ${com_pts}.`);
-    }
-
-}
-
-playGame()
